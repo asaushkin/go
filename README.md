@@ -13,10 +13,11 @@ Using the JsonDB is very simple:
 package main
 
 import (
-    "github.com/asaushkin/go/database/jsondb"
     "database/sql"
     "fmt"
     "log"
+
+    "github.com/asaushkin/jsondb"
 
     _ "github.com/lib/pq"
 )
@@ -27,11 +28,6 @@ func main() {
         log.Fatal(err)
     }
     defer db.Close()
-
-    err = db.Ping()
-    if err != nil {
-        log.Fatal(err)
-    }
 
     j, err := jsondb.NewJsonDB(db)
     fmt.Println(j.Json("select * from goings limit 1"))
