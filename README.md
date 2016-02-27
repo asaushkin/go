@@ -13,7 +13,7 @@ Using the JsonDB is very simple:
 package main
 
 import (
-    "database/jsondb"
+    "github.com/asaushkin/go/database/jsondb"
     "database/sql"
     "fmt"
     "log"

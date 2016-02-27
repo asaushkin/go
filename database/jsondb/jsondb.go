@@ -3,6 +3,7 @@ package jsondb
 import (
 	"database/sql"
 	"encoding/json"
+	"errors"
 	"log"
 )
 
@@ -12,7 +13,7 @@ type JsonDB struct {
 
 func NewJsonDB(db *sql.DB) (*JsonDB, error) {
 	if db == nil {
-		return nil, "The database connection must be already initialized"
+		return nil, errors.New("The database connection must be already initialized")
 	}
 
 	j := &JsonDB{db: db}
